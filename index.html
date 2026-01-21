@@ -130,6 +130,74 @@ h2{font-size:3rem;margin-bottom:40px}
 }
 .card:hover{transform:translateY(-10px)}
 
+  /* ---------- PROJECT CARDS ---------- */
+.project-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:22px;
+  padding:32px;
+  transition:0.35s;
+  position:relative;
+  overflow:hidden;
+}
+
+.project-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(0,245,255,0.18),
+    rgba(127,0,255,0.18)
+  );
+  opacity:0;
+  transition:0.35s;
+}
+
+.project-card:hover::before{
+  opacity:1;
+}
+
+.project-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.project-card h3{
+  font-size:1.4rem;
+  margin-bottom:12px;
+}
+
+.project-desc{
+  opacity:0.85;
+  line-height:1.6;
+}
+
+.project-tech{
+  margin-top:14px;
+  font-size:0.9rem;
+  opacity:0.7;
+}
+
+/* CTA BUTTON */
+.project-btn{
+  display:inline-block;
+  margin-top:22px;
+  padding:10px 22px;
+  border-radius:18px;
+  background:#00f5ff;
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.project-card:hover .project-btn{
+  background:#7f00ff;
+  color:#fff;
+}
+
+
 /* ---------- ABOUT ---------- */
 .about-intro{max-width:800px;font-size:1.15rem;line-height:1.7;margin-bottom:50px}
 
@@ -231,17 +299,37 @@ footer{text-align:center;padding:40px;opacity:.6}
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card" onclick="openModal('AI Stock Trading Analyst','AI agent based system for market analysis.')">
-      AI Stock Trading Analyst
-    </div>
-    <div class="card" onclick="openModal('Loan Approval Prediction','ML model predicting loan approvals.')">
-      Loan Approval Prediction
-    </div>
-  </div>
-</section>
+<div class="project-card">
+  <h3>AI Stock Trading Analyst</h3>
+  <p class="project-desc">
+    Automated market analysis system using AI agents and LLMs.
+  </p>
+
+  <p class="project-tech">
+    Python • AI Agents • LLMs
+  </p>
+
+  <a class="project-btn" target="_blank"
+     href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/">
+     View on LinkedIn →
+  </a>
+</div>
+<div class="project-card">
+  <h3>Loan Approval Prediction</h3>
+  <p class="project-desc">
+    Machine learning model predicting loan approval outcomes.
+  </p>
+
+  <p class="project-tech">
+    Machine Learning • Finance • Data Science
+  </p>
+
+  <a class="project-btn" target="_blank"
+     href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/">
+     View on LinkedIn →
+  </a>
+</div>
+
 
 <!-- CONTACT -->
 <section id="contact">
