@@ -8,17 +8,22 @@
 <!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Lottie -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <style>
+/* ================= ROOT & THEME ================= */
 :root{
   --bg:#050505;
   --text:#ffffff;
-  --card:rgba(255,255,255,0.06);
-  --border:rgba(255,255,255,0.1);
+  --card:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.1);
+  --accent:#00f5ff;
+  --accent2:#7f00ff;
 }
 body.light{
-  --bg:#f6f7fb;
+  --bg:#f5f7fa;
   --text:#111;
   --card:#ffffff;
   --border:#ddd;
@@ -30,38 +35,35 @@ html{scroll-behavior:smooth}
 body{
   background:var(--bg);
   color:var(--text);
-  padding-top:110px;
   overflow-x:hidden;
+  padding-top:90px;
+  transition:.3s;
 }
 
-/* ---------- PROGRESS BAR ---------- */
-#progress{
-  position:fixed;
-  top:0;left:0;
-  height:4px;
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  width:0%;
-  z-index:999;
+/* ================= BACKGROUND ================= */
+.bg-blur{
+  position:fixed;width:420px;height:420px;
+  filter:blur(160px);opacity:.35;z-index:-1;
 }
+.bg1{top:-120px;left:-120px;background:linear-gradient(45deg,#00f5ff,#7f00ff)}
+.bg2{bottom:-150px;right:-150px;background:linear-gradient(45deg,#ff0080,#ff8c00)}
 
-/* ---------- NAV ---------- */
+/* ================= NAV ================= */
 nav{
-  position:fixed;
-  top:0;width:100%;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  position:fixed;top:0;width:100%;
+  padding:18px 8%;
+  display:flex;justify-content:space-between;
   backdrop-filter:blur(20px);
   z-index:100;
 }
 nav a{
   color:var(--text);
   text-decoration:none;
-  margin-left:30px;
-  opacity:.6;
+  margin-left:28px;
+  opacity:.7;
+  font-weight:500;
 }
-nav a.active{opacity:1;border-bottom:2px solid #00f5ff}
+nav a.active{opacity:1;color:var(--accent)}
 nav a:hover{opacity:1}
 
 .toggle{
@@ -69,123 +71,136 @@ nav a:hover{opacity:1}
   margin-left:30px;
 }
 
-/* ---------- SECTIONS ---------- */
+/* ================= SECTIONS ================= */
 section{
+  scroll-margin-top:100px;
   padding:120px 10%;
-  scroll-margin-top:120px;
+  max-width:1200px;
+  margin:auto;
 }
 h2{font-size:3rem;margin-bottom:40px}
 
-/* ---------- HERO ---------- */
-.hero{height:calc(100vh - 110px);display:flex;align-items:center}
+/* ================= HERO ================= */
+.hero{
+  height:calc(100vh - 90px);
+  display:flex;
+  align-items:center;
+}
 .hero-inner{
-  max-width:1200px;
-  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:80px;
+  width:100%;
 }
 .hero-text{max-width:520px}
 .hero h1{font-size:4rem;font-weight:800}
 .hero span{
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{margin-top:20px;font-size:1.2rem;opacity:.85}
+
 .cta-btn{
-  display:inline-block;
-  margin-top:40px;
-  padding:14px 30px;
+  display:inline-block;margin-top:35px;
+  padding:14px 32px;
   border-radius:30px;
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  color:#000;
-  font-weight:600;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#000;font-weight:600;
   text-decoration:none;
+  transition:.3s;
 }
+.cta-btn:hover{transform:scale(1.05)}
+
 .hero-lottie{
-  width:500px;
-  animation:float 6s ease-in-out infinite;
+  width:520px;height:520px;
+  animation:float 4s ease-in-out infinite;
 }
 @keyframes float{
-  0%{transform:translateY(0)}
+  0%,100%{transform:translateY(0)}
   50%{transform:translateY(-18px)}
-  100%{transform:translateY(0)}
 }
 
-/* ---------- PROJECT CARDS ---------- */
+@media(max-width:900px){
+  .hero-inner{flex-direction:column;text-align:center}
+  .hero-lottie{width:340px;height:340px}
+}
+
+/* ================= ABOUT ================= */
+.about-intro{max-width:800px;line-height:1.7;opacity:.9}
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+.about-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:30px;
+}
+.about-card h3{color:var(--accent);margin-bottom:10px}
+
+/* ================= PROJECTS ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
 .project-card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:22px;
   padding:32px;
-  transition:0.35s;
   position:relative;
   overflow:hidden;
+  transition:.35s;
 }
-
 .project-card::before{
   content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    135deg,
-    rgba(0,245,255,0.18),
-    rgba(127,0,255,0.18)
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,
+    rgba(0,245,255,.18),
+    rgba(127,0,255,.18)
   );
-  opacity:0;
-  transition:0.35s;
+  opacity:0;transition:.35s;
 }
+.project-card:hover::before{opacity:1}
+.project-card>*{position:relative;z-index:1}
+.project-card h3{margin-bottom:12px}
+.project-tech{margin-top:14px;font-size:.9rem;opacity:.7}
 
-.project-card:hover::before{
-  opacity:1;
-}
-
-.project-card > *{
-  position:relative;
-  z-index:1;
-}
-
-.project-card h3{
-  font-size:1.4rem;
-  margin-bottom:12px;
-}
-
-.project-desc{
-  opacity:0.85;
-  line-height:1.6;
-}
-
-.project-tech{
-  margin-top:14px;
-  font-size:0.9rem;
-  opacity:0.7;
-}
-
-/* CTA BUTTON */
 .project-btn{
   display:inline-block;
   margin-top:22px;
   padding:10px 22px;
   border-radius:18px;
-  background:#00f5ff;
+  background:var(--accent);
   color:#000;
   font-weight:600;
   text-decoration:none;
-  transition:0.3s;
 }
 
-.project-card:hover .project-btn{
-  background:#7f00ff;
-  color:#fff;
+/* ================= MODAL ================= */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;align-items:center;justify-content:center;
+  z-index:200;
 }
+.modal-content{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:40px;
+  border-radius:20px;
+  max-width:500px;
+}
+.modal.show{display:flex}
 
-
-/* ---------- ABOUT ---------- */
-.about-intro{max-width:800px;font-size:1.15rem;line-height:1.7;margin-bottom:50px}
-
-/* ---------- CONTACT ---------- */
+/* ================= CONTACT ================= */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -194,56 +209,45 @@ h2{font-size:3rem;margin-bottom:40px}
 .contact-card{
   text-align:center;
   padding:40px;
-  border-radius:20px;
+  border-radius:22px;
   background:var(--card);
   border:1px solid var(--border);
 }
 .linkedin-card{
-  background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(127,0,255,.15));
-  text-decoration:none;
+  background:linear-gradient(135deg,
+    rgba(0,245,255,.15),
+    rgba(127,0,255,.12));
+  border:1px solid rgba(0,245,255,.35);
+  cursor:pointer;
 }
 .linkedin-btn{
-  margin-top:15px;
   display:inline-block;
-  padding:10px 20px;
+  margin-top:18px;
+  padding:10px 22px;
   border-radius:20px;
-  background:#00f5ff;
+  background:var(--accent);
   color:#000;
   font-weight:600;
 }
 
-/* ---------- MODAL ---------- */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-}
-.modal-content{
-  background:var(--bg);
-  border-radius:20px;
-  padding:40px;
-  max-width:500px;
-}
-.modal.show{display:flex}
+/* ================= REVEAL ================= */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:none}
 
-/* ---------- FOOTER ---------- */
+/* ================= FOOTER ================= */
 footer{text-align:center;padding:40px;opacity:.6}
 </style>
 </head>
 
 <body>
 
-<div id="progress"></div>
+<div class="bg-blur bg1"></div>
+<div class="bg-blur bg2"></div>
 
 <nav>
   <strong>JRM</strong>
   <div>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <span class="toggle" onclick="toggleTheme()">🌓</span>
@@ -251,83 +255,59 @@ footer{text-align:center;padding:40px;opacity:.6}
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero reveal">
   <div class="hero-inner">
     <div class="hero-text">
       <h1>Joshua Rufus <span>Mukku</span></h1>
       <p>Data Scientist specializing in Machine Learning and AI systems</p>
       <a href="#projects" class="cta-btn">View My Work</a>
     </div>
-    <lottie-player src="ai-animation.json" background="transparent" speed="1" loop autoplay class="hero-lottie"></lottie-player>
+
+    <lottie-player src="ai-animation.json"
+      background="transparent" loop autoplay
+      class="hero-lottie"></lottie-player>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="reveal">
   <h2>About Me</h2>
   <p class="about-intro">
-    M.Sc. Data Science student at University of Europe, Potsdam (Germany),
+    M.Sc. Data Science student at the University of Europe, Potsdam (Germany),
     focused on Machine Learning, AI systems, and intelligent automation.
   </p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
   <div class="grid">
-    <div class="card">Python, SQL, JavaScript</div>
-    <div class="card">Machine Learning & AI</div>
-    <div class="card">Data Analysis</div>
-    <div class="card">Web Development</div>
+    <div class="project-card" onclick="openModal('stock')">
+      <h3>AI Stock Trading Analyst</h3>
+      <p>Automated market analysis using AI agents.</p>
+      <p class="project-tech">Python • AI Agents • LLMs</p>
+    </div>
+    <div class="project-card" onclick="openModal('loan')">
+      <h3>Loan Approval Prediction</h3>
+      <p>ML model predicting loan approvals.</p>
+      <p class="project-tech">ML • Finance • Data Science</p>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<div class="project-card">
-  <h3>AI Stock Trading Analyst</h3>
-  <p class="project-desc">
-    Automated market analysis system using AI agents and LLMs.
-  </p>
-
-  <p class="project-tech">
-    Python • AI Agents • LLMs
-  </p>
-
-  <a class="project-btn" target="_blank"
-     href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/">
-     View on LinkedIn →
-  </a>
-</div>
-<div class="project-card">
-  <h3>Loan Approval Prediction</h3>
-  <p class="project-desc">
-    Machine learning model predicting loan approval outcomes.
-  </p>
-
-  <p class="project-tech">
-    Machine Learning • Finance • Data Science
-  </p>
-
-  <a class="project-btn" target="_blank"
-     href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/">
-     View on LinkedIn →
-  </a>
-</div>
-
-
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="reveal">
   <h2>Contact</h2>
   <div class="contact-grid">
     <div class="contact-card">
-      <i class="fas fa-envelope"></i><br>
-      <a href="mailto:joshua.mukku@ue-germany.de">joshua.mukku@ue-germany.de</a>
+      <i class="fas fa-envelope"></i>
+      <p>joshua.mukku@ue-germany.de</p>
     </div>
 
-    <a class="contact-card linkedin-card" target="_blank"
-       href="https://www.linkedin.com/in/joshua-rufus-037ba428a/">
-      <i class="fab fa-linkedin"></i><br>
-      LinkedIn<br>
+    <a href="https://www.linkedin.com/in/joshua-rufus-037ba428a/"
+       target="_blank" class="contact-card linkedin-card">
+      <i class="fab fa-linkedin"></i>
+      <h3>LinkedIn</h3>
       <span class="linkedin-btn">Visit Profile →</span>
     </a>
   </div>
@@ -336,40 +316,39 @@ footer{text-align:center;padding:40px;opacity:.6}
 <footer>© 2026 Joshua Rufus Mukku</footer>
 
 <!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p><br>
-    <button onclick="closeModal()">Close</button>
-  </div>
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" id="modalContent"></div>
 </div>
 
 <script>
-// Progress bar
-window.addEventListener("scroll",()=>{
-  const h=document.documentElement;
-  document.getElementById("progress").style.width=
-    (h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
-
-  document.querySelectorAll("section").forEach(sec=>{
-    if(sec.getBoundingClientRect().top<150){
-      document.querySelectorAll("nav a").forEach(a=>a.classList.remove("active"));
-      const link=document.querySelector(`nav a[href="#${sec.id}"]`);
-      if(link) link.classList.add("active");
-    }
+/* Reveal */
+document.querySelectorAll(".reveal").forEach(el=>{
+  if(el.getBoundingClientRect().top < innerHeight-100)
+    el.classList.add("active");
+});
+addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(el=>{
+    if(el.getBoundingClientRect().top < innerHeight-100)
+      el.classList.add("active");
   });
 });
 
-// Theme toggle
+/* Theme */
 function toggleTheme(){
   document.body.classList.toggle("light");
 }
 
-// Modal
-function openModal(title,text){
-  document.getElementById("modalTitle").innerText=title;
-  document.getElementById("modalText").innerText=text;
-  document.getElementById("modal").classList.add("show");
+/* Modal */
+function openModal(type){
+  const modal=document.getElementById("modal");
+  const content=document.getElementById("modalContent");
+  if(type==="stock"){
+    content.innerHTML="<h3>AI Stock Trading Analyst</h3><p>AI agent-driven trading analysis system.</p>";
+  }
+  if(type==="loan"){
+    content.innerHTML="<h3>Loan Approval Prediction</h3><p>ML model trained on financial data.</p>";
+  }
+  modal.classList.add("show");
 }
 function closeModal(){
   document.getElementById("modal").classList.remove("show");
