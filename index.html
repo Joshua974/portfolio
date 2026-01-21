@@ -64,41 +64,20 @@ nav a:hover{opacity:1}
   min-height:100vh;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   padding:0 10%;
+  gap:80px;
 }
-.hero h1{
-  font-size:4rem;
-  font-weight:800;
+
+.hero-text{
+  max-width:540px;
 }
-.hero span{
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  margin-top:20px;
-  font-size:1.2rem;
-  opacity:.85;
-}
-.cta{
-  margin-top:40px;
-}
-.cta button{
-  padding:14px 30px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  color:#000;
-  font-weight:600;
-  cursor:pointer;
-}
-.cta button:hover{transform:scale(1.05)}
 
 .hero-lottie{
-  width:520px;          /* bigger */
+  width:520px;
   height:520px;
   flex-shrink:0;
-  animation: float 2s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -106,18 +85,8 @@ nav a:hover{opacity:1}
   50%  { transform: translateY(-18px); }
   100% { transform: translateY(0); }
 }
-  .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 10%;
-  gap:80px;
-}
-  .hero-text{
-  max-width:540px;
-}
-  @media(max-width:900px){
+
+@media(max-width:900px){
   .hero{
     flex-direction:column;
     text-align:center;
@@ -129,20 +98,7 @@ nav a:hover{opacity:1}
     margin-top:40px;
   }
 }
-.cta-btn{
-  display:inline-block;
-  padding:14px 30px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-  transition:transform .3s;
-}
 
-.cta-btn:hover{
-  transform:scale(1.05);
-}
 
 
 
