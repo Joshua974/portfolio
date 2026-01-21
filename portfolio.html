@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joshua Rufus Mukku | Data Scientist</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ---------- BACKGROUND ANIMATIONS ---------- */
+.bg-blur{
+  position:fixed;
+  width:400px;height:400px;
+  background:linear-gradient(45deg,#00f5ff,#7f00ff);
+  filter:blur(140px);
+  opacity:.35;
+  animation:float 12s infinite alternate;
+}
+.bg1{top:-100px;left:-100px}
+.bg2{bottom:-150px;right:-150px;background:linear-gradient(45deg,#ff0080,#ff8c00)}
+
+@keyframes float{
+  from{transform:translateY(0)}
+  to{transform:translateY(-80px)}
+}
+
+/* ---------- NAVBAR ---------- */
+nav{
+  position:fixed;
+  top:0;width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  z-index:100;
+  backdrop-filter:blur(20px);
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:30px;
+  font-weight:500;
+  opacity:.8;
+}
+nav a:hover{opacity:1}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:0 10%;
+}
+.hero h1{
+  font-size:4rem;
+  font-weight:800;
+}
+.hero span{
+  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
+  opacity:.85;
+}
+.cta{
+  margin-top:40px;
+}
+.cta button{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+}
+.cta button:hover{transform:scale(1.05)}
+
+/* ---------- SECTION ---------- */
+section{
+  padding:120px 10%;
+}
+h2{
+  font-size:3rem;
+  margin-bottom:40px;
+}
+
+/* ---------- GLASS CARDS ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:30px;
+  backdrop-filter:blur(20px);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-15px);
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+
+/* ---------- SKILLS ---------- */
+.skill{
+  font-size:1.1rem;
+  font-weight:600;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:.6;
+}
+
+/* ---------- SCROLL ANIMATION ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-blur bg1"></div>
+<div class="bg-blur bg2"></div>
+
+<!-- NAV -->
+<nav>
+  <strong>JRM</strong>
+  <div>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Joshua Rufus <span>Mukku</span></h1>
+    <p>M.Sc Data Science | AI Engineer | Web Architect</p>
+    <div class="cta">
+      <button>View My Work</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <p>
+    I am pursuing my <b>M.Sc. in Data Science</b> at University of Europe, Potsdam, Germany.
+    I hold a <b>B.Tech in AI & Machine Learning</b> from Narasimha Reddy Engineering College, India.
+    I specialize in building intelligent systems, data-driven products and AI-powered web platforms.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <h2>Core Skills</h2>
+  <div class="grid">
+    <div class="card skill">Python & Data Analysis</div>
+    <div class="card skill">Machine Learning & AI</div>
+    <div class="card skill">Web Development</div>
+    <div class="card skill">JavaScript & APIs</div>
+    <div class="card skill">Data Management</div>
+    <div class="card skill">AI Agentic Systems</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>AI Stock Trading Analyst</h3>
+      <p>Agent-based AI system automating market data analysis and insights.</p>
+    </div>
+    <div class="card">
+      <h3>Loan Approval Prediction</h3>
+      <p>ML model using financial datasets to predict loan approvals.</p>
+    </div>
+    <div class="card">
+      <h3>AI Certification Projects</h3>
+      <p>IBM & Value Laden AI-driven real-world implementations.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Joshua Rufus Mukku
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(r=>{
+    if(r.getBoundingClientRect().top<window.innerHeight-100){
+      r.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
