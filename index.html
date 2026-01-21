@@ -15,62 +15,124 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#050505;color:#fff;overflow-x:hidden}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
 
-/* Background */
+body{
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
+  padding-top:100px; /* navbar height */
+}
+
+/* ---------- BACKGROUND GLOW ---------- */
 .bg-blur{
-  position:fixed;width:400px;height:400px;
+  position:fixed;
+  width:400px;
+  height:400px;
+  filter:blur(140px);
+  opacity:.35;
+  z-index:-1;
+}
+.bg1{
+  top:-100px;
+  left:-100px;
   background:linear-gradient(45deg,#00f5ff,#7f00ff);
-  filter:blur(140px);opacity:.35;z-index:-1
 }
-.bg1{top:-100px;left:-100px}
-.bg2{bottom:-150px;right:-150px;background:linear-gradient(45deg,#ff0080,#ff8c00)}
+.bg2{
+  bottom:-150px;
+  right:-150px;
+  background:linear-gradient(45deg,#ff0080,#ff8c00);
+}
 
-/* Nav */
+/* ---------- NAVBAR ---------- */
 nav{
-  position:fixed;top:0;width:100%;
+  position:fixed;
+  top:0;
+  width:100%;
   padding:20px 8%;
-  display:flex;justify-content:space-between;
-  backdrop-filter:blur(20px);z-index:100
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(20px);
+  z-index:100;
 }
-nav a{color:#fff;text-decoration:none;margin-left:30px;opacity:.8}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:30px;
+  opacity:.8;
+}
 nav a:hover{opacity:1}
 
-/* Hero */
-section {
-  scroll-margin-top: 100px; /* height of navbar */
+/* ---------- ANCHOR FIX ---------- */
+section{
+  scroll-margin-top:100px;
+  padding:120px 10%;
 }
-  .hero{
-  min-height:100vh;
+
+h2{
+  font-size:3rem;
+  margin-bottom:40px;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  height:calc(100vh - 100px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 10%;
   gap:80px;
 }
-.hero-text{max-width:540px}
-.hero h1{font-size:4rem;font-weight:800}
+
+.hero-text{
+  max-width:540px;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-weight:800;
+}
+
 .hero span{
   background:linear-gradient(90deg,#00f5ff,#7f00ff);
   -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent
+  -webkit-text-fill-color:transparent;
 }
-.hero p{margin-top:20px;font-size:1.2rem;opacity:.85}
 
-.cta{margin-top:40px}
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
+  opacity:.85;
+}
+
+.cta{
+  margin-top:40px;
+}
+
 .cta-btn{
   display:inline-block;
   padding:14px 30px;
   border-radius:30px;
   background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  color:#000;font-weight:600;text-decoration:none
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
 }
+.cta-btn:hover{transform:scale(1.05)}
 
 .hero-lottie{
-  width:520px;height:520px;
-  animation:float 6s ease-in-out infinite
+  width:520px;
+  height:520px;
+  animation:float 6s ease-in-out infinite;
 }
+
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-18px)}
@@ -78,114 +140,45 @@ section {
 }
 
 @media(max-width:900px){
-  .hero{flex-direction:column;text-align:center}
-  .hero-lottie{width:340px;height:340px;margin-top:40px}
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-lottie{
+    width:340px;
+    height:340px;
+    margin-top:40px;
+  }
 }
 
-/* Sections */
-section{padding:120px 10%}
-h2{font-size:3rem;margin-bottom:40px}
-
-/* Grid */
+/* ---------- GRID / CARDS ---------- */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px
+  gap:30px;
 }
+
 .card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
   border-radius:20px;
   padding:30px;
   backdrop-filter:blur(20px);
-  transition:.4s
+  transition:.3s;
 }
-.card:hover{transform:translateY(-15px)}
+.card:hover{transform:translateY(-10px)}
 
 .project-link{
-  display:inline-block;margin-top:15px;
-  color:#00f5ff;text-decoration:none;font-weight:600
+  display:inline-block;
+  margin-top:15px;
+  color:#00f5ff;
+  text-decoration:none;
+  font-weight:600;
 }
 .project-link:hover{text-decoration:underline}
 
-footer{text-align:center;padding:40px;opacity:.6}
-  /* ---------- ABOUT SECTION (CREATIVE) ---------- */
+/* ---------- ABOUT ---------- */
 .about-section{
-  padding:120px 10%;
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1.2fr 0.8fr;
-  gap:60px;
-  align-items:flex-start;
-}
-
-.about-content h2{
-  font-size:3rem;
-  margin-bottom:30px;
-}
-
-.about-intro{
-  font-size:1.15rem;
-  line-height:1.7;
-  opacity:.9;
-}
-
-.about-intro span{
-  color:#00f5ff;
-  font-weight:600;
-}
-
-.about-block{
-  margin-top:30px;
-}
-
-.about-block h4{
-  margin-bottom:10px;
-  font-size:1.1rem;
-  color:#7f00ff;
-}
-
-.about-block.highlight{
-  padding:20px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-}
-
-.about-cards{
-  display:grid;
-  gap:25px;
-}
-
-.about-card{
-  padding:30px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(20px);
-  transition:0.4s;
-}
-
-.about-card:hover{
-  transform:translateY(-10px);
-}
-
-.about-card h3{
-  margin-bottom:10px;
-  color:#00f5ff;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-}
-/* ---------- ABOUT SECTION ---------- */
-.about-section{
-  padding:120px 10%;
   max-width:1200px;
   margin:auto;
 }
@@ -200,7 +193,7 @@ footer{text-align:center;padding:40px;opacity:.6}
 
 .about-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
 }
 
@@ -209,16 +202,11 @@ footer{text-align:center;padding:40px;opacity:.6}
   border:1px solid rgba(255,255,255,0.1);
   border-radius:20px;
   padding:30px;
-  backdrop-filter:blur(20px);
 }
 
 .about-card h3{
   margin-bottom:12px;
   color:#00f5ff;
-}
-
-.about-card p{
-  line-height:1.6;
 }
 
 .about-card.highlight{
@@ -230,20 +218,21 @@ footer{text-align:center;padding:40px;opacity:.6}
   );
 }
 
-/* IMPORTANT: FIX TEXT CUT-OFF */
-.about-section p{
-  white-space:normal;
-  overflow-wrap:break-word;
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:.6;
 }
-
 </style>
 </head>
 
 <body>
-<div style="height:100px"></div>
+
 <div class="bg-blur bg1"></div>
 <div class="bg-blur bg2"></div>
 
+<!-- NAV -->
 <nav>
   <strong>JRM</strong>
   <div>
@@ -267,7 +256,8 @@ footer{text-align:center;padding:40px;opacity:.6}
     src="ai-animation.json"
     background="transparent"
     speed="1"
-    loop autoplay
+    loop
+    autoplay
     class="hero-lottie">
   </lottie-player>
 </div>
@@ -278,18 +268,16 @@ footer{text-align:center;padding:40px;opacity:.6}
 
   <p class="about-intro">
     I am an <b>M.Sc. Data Science</b> student at the
-    <b>University of Europe, Potsdam (Germany)</b>, with a strong academic
+    <b>University of Europe, Potsdam (Germany)</b> with a strong academic
     and practical background in <b>Machine Learning</b>, <b>AI systems</b>,
     and <b>data-driven application development</b>.
   </p>
 
   <div class="about-grid">
-
     <div class="about-card">
       <h3>🎓 Education</h3>
       <p>
-        B.Tech in Computer Science
-        (<b>Artificial Intelligence & Machine Learning</b>)<br>
+        B.Tech in Computer Science (AI & ML)<br>
         Narasimha Reddy Engineering College, Hyderabad
       </p>
     </div>
@@ -297,9 +285,8 @@ footer{text-align:center;padding:40px;opacity:.6}
     <div class="about-card">
       <h3>🧠 Interests</h3>
       <p>
-        Building intelligent systems that solve real-world problems —
-        from <b>predictive analytics</b> and <b>financial ML models</b>
-        to <b>AI-powered automation</b> and <b>agent-based workflows</b>.
+        Predictive analytics, financial ML models,
+        AI-powered automation, and agent-based workflows.
       </p>
     </div>
 
@@ -307,15 +294,12 @@ footer{text-align:center;padding:40px;opacity:.6}
       <h3>🚀 Currently Seeking</h3>
       <p>
         Internships and working student roles in
-        <b>Data Science</b>, <b>Machine Learning</b>, or <b>AI</b>
+        Data Science, Machine Learning, or AI
         within Germany and the EU.
       </p>
     </div>
-
   </div>
 </section>
-
-
 
 <!-- SKILLS -->
 <section id="skills">
@@ -335,7 +319,7 @@ footer{text-align:center;padding:40px;opacity:.6}
 
     <div class="card">
       <h3>AI Stock Trading Analyst</h3>
-      <p>AI agent-based system for market analysis.</p>
+      <p>AI agent-based system for automated market analysis.</p>
       <a class="project-link" target="_blank"
          href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/">
         View on LinkedIn →
@@ -344,7 +328,7 @@ footer{text-align:center;padding:40px;opacity:.6}
 
     <div class="card">
       <h3>Loan Approval Prediction</h3>
-      <p>ML model predicting loan approvals.</p>
+      <p>Machine learning model predicting loan approvals.</p>
       <a class="project-link" target="_blank"
          href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/">
         View on LinkedIn →
@@ -358,3 +342,4 @@ footer{text-align:center;padding:40px;opacity:.6}
 
 </body>
 </html>
+
