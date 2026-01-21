@@ -11,55 +11,33 @@
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Lottie Player -->
+<!-- Lottie -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{
-  background:#050505;
-  color:#fff;
-  overflow-x:hidden;
-}
+body{background:#050505;color:#fff;overflow-x:hidden}
 
-/* ---------- BACKGROUND ANIMATIONS ---------- */
+/* Background */
 .bg-blur{
-  position:fixed;
-  width:400px;height:400px;
+  position:fixed;width:400px;height:400px;
   background:linear-gradient(45deg,#00f5ff,#7f00ff);
-  filter:blur(140px);
-  opacity:.35;
-  animation:float 12s infinite alternate;
+  filter:blur(140px);opacity:.35;z-index:-1
 }
 .bg1{top:-100px;left:-100px}
 .bg2{bottom:-150px;right:-150px;background:linear-gradient(45deg,#ff0080,#ff8c00)}
 
-@keyframes float{
-  from{transform:translateY(0)}
-  to{transform:translateY(-80px)}
-}
-
-/* ---------- NAVBAR ---------- */
+/* Nav */
 nav{
-  position:fixed;
-  top:0;width:100%;
+  position:fixed;top:0;width:100%;
   padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  z-index:100;
-  backdrop-filter:blur(20px);
+  display:flex;justify-content:space-between;
+  backdrop-filter:blur(20px);z-index:100
 }
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:30px;
-  font-weight:500;
-  opacity:.8;
-}
+nav a{color:#fff;text-decoration:none;margin-left:30px;opacity:.8}
 nav a:hover{opacity:1}
 
-/* ---------- HERO ---------- */
+/* Hero */
 .hero{
   min-height:100vh;
   display:flex;
@@ -68,56 +46,48 @@ nav a:hover{opacity:1}
   padding:0 10%;
   gap:80px;
 }
+.hero-text{max-width:540px}
+.hero h1{font-size:4rem;font-weight:800}
+.hero span{
+  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent
+}
+.hero p{margin-top:20px;font-size:1.2rem;opacity:.85}
 
-.hero-text{
-  max-width:540px;
+.cta{margin-top:40px}
+.cta-btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  color:#000;font-weight:600;text-decoration:none
 }
 
 .hero-lottie{
-  width:520px;
-  height:520px;
-  flex-shrink:0;
-  animation: float 6s ease-in-out infinite;
+  width:520px;height:520px;
+  animation:float 6s ease-in-out infinite
 }
-
-@keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-18px); }
-  100% { transform: translateY(0); }
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-18px)}
+  100%{transform:translateY(0)}
 }
 
 @media(max-width:900px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .hero-lottie{
-    width:340px;
-    height:340px;
-    margin-top:40px;
-  }
+  .hero{flex-direction:column;text-align:center}
+  .hero-lottie{width:340px;height:340px;margin-top:40px}
 }
 
+/* Sections */
+section{padding:120px 10%}
+h2{font-size:3rem;margin-bottom:40px}
 
-
-
-
-
-/* ---------- SECTION ---------- */
-section{
-  padding:120px 10%;
-}
-h2{
-  font-size:3rem;
-  margin-bottom:40px;
-}
-
-/* ---------- GLASS CARDS ---------- */
+/* Grid */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+  gap:30px
 }
 .card{
   background:rgba(255,255,255,.06);
@@ -125,48 +95,17 @@ h2{
   border-radius:20px;
   padding:30px;
   backdrop-filter:blur(20px);
-  transition:.4s;
+  transition:.4s
 }
-.card:hover{
-  transform:translateY(-15px);
-  box-shadow:0 40px 80px rgba(0,0,0,.5);
-}
-  .project-link{
-  display:inline-block;
-  margin-top:15px;
-  color:#00f5ff;
-  text-decoration:none;
-  font-weight:600;
-}
+.card:hover{transform:translateY(-15px)}
 
-.project-link:hover{
-  text-decoration:underline;
+.project-link{
+  display:inline-block;margin-top:15px;
+  color:#00f5ff;text-decoration:none;font-weight:600
 }
+.project-link:hover{text-decoration:underline}
 
-
-/* ---------- SKILLS ---------- */
-.skill{
-  font-size:1.1rem;
-  font-weight:600;
-}
-
-/* ---------- FOOTER ---------- */
-footer{
-  text-align:center;
-  padding:40px;
-  opacity:.6;
-}
-
-/* ---------- SCROLL ANIMATION ---------- */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
+footer{text-align:center;padding:40px;opacity:.6}
 </style>
 </head>
 
@@ -175,7 +114,6 @@ footer{
 <div class="bg-blur bg1"></div>
 <div class="bg-blur bg2"></div>
 
-<!-- NAV -->
 <nav>
   <strong>JRM</strong>
   <div>
@@ -187,156 +125,70 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  
-  <!-- LEFT: TEXT -->
-  <div class="hero">
-
   <div class="hero-text">
     <h1>Joshua Rufus <span>Mukku</span></h1>
     <p>Data Scientist specializing in Machine Learning and AI systems</p>
-
     <div class="cta">
       <a href="#projects" class="cta-btn">View My Work</a>
     </div>
   </div>
 
-  <!-- RIGHT: LOTTIE ANIMATION -->
   <lottie-player
     src="ai-animation.json"
     background="transparent"
     speed="1"
-    loop
-    autoplay
+    loop autoplay
     class="hero-lottie">
   </lottie-player>
-
 </div>
 
-
 <!-- ABOUT -->
-<section id="about" class="reveal">
+<section id="about">
   <h2>About Me</h2>
   <p>
-    I am an M.Sc. Data Science student at the <b>University of Europe, Potsdam (Germany)</b>,
-    with a strong academic and practical background in Machine Learning, AI systems,
-    and data-driven application development.
-    <br><br>
-    I completed my B.Tech in Computer Science (Artificial Intelligence & Machine Learning)
-    from Narasimha Reddy Engineering College, Hyderabad, where I built a solid foundation
-    in algorithms, data structures, and applied AI.
-    <br><br>
-    My interests lie in building intelligent systems that solve real-world problems —
-    from predictive analytics and financial ML models to AI-powered automation and agent-based workflows.
-    <br><br>
-    I am actively seeking <b>internships and working student roles</b> in Data Science,
-    Machine Learning, or AI within Germany and the EU.
+    M.Sc. Data Science student at the University of Europe, Potsdam, Germany.
+    Strong background in Machine Learning, AI systems, and data-driven development.
   </p>
 </section>
 
-
 <!-- SKILLS -->
-<section id="skills" class="reveal">
-  <h2>Technical Skills</h2>
-
+<section id="skills">
+  <h2>Skills</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Programming & Tools</h3>
-      <p>Python, JavaScript, SQL, Git, REST APIs</p>
-    </div>
-
-    <div class="card">
-      <h3>Data Science & Analytics</h3>
-      <p>Data Analysis, Data Cleaning, Feature Engineering, Visualization</p>
-    </div>
-
-    <div class="card">
-      <h3>Machine Learning & AI</h3>
-      <p>Supervised & Unsupervised Learning, Model Evaluation, AI Systems</p>
-    </div>
-
-    <div class="card">
-      <h3>Web & Application Development</h3>
-      <p>HTML, CSS, JavaScript, Frontend UI, Interactive Dashboards</p>
-    </div>
-
-    <div class="card">
-      <h3>AI Agentic Workflows</h3>
-      <p>LLMs, AI Agents, Automation Pipelines, n8n-based workflows</p>
-    </div>
-
-    <div class="card">
-      <h3>Data Management</h3>
-      <p>Data Pipelines, Structured Data, Data Handling & Optimization</p>
-    </div>
+    <div class="card">Python, SQL, JavaScript</div>
+    <div class="card">Machine Learning & AI</div>
+    <div class="card">Data Analysis & Visualization</div>
+    <div class="card">Web Development</div>
   </div>
 </section>
 
-
 <!-- PROJECTS -->
-<!-- PROJECTS -->
-<section id="projects" class="reveal">
+<section id="projects">
   <h2>Projects</h2>
-
   <div class="grid">
 
     <div class="card">
       <h3>AI Stock Trading Analyst</h3>
-      <p>
-        Designed and implemented an AI-driven stock trading analysis system using
-        agent-based workflows to automate market data analysis and insights generation.
-      </p>
-      <p><b>Technologies:</b> Python, AI Agents, LLMs, Automation</p>
-      <a href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/"
-         target="_blank" class="project-link">
-         View on LinkedIn →
+      <p>AI agent-based system for market analysis.</p>
+      <a class="project-link" target="_blank"
+         href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/">
+        View on LinkedIn →
       </a>
     </div>
 
     <div class="card">
-      <h3>Loan Approval Prediction System</h3>
-      <p>
-        Built a machine learning model to predict loan approval outcomes using
-        real-world financial data, including preprocessing and model evaluation.
-      </p>
-      <p><b>Technologies:</b> Python, Machine Learning</p>
-      <a href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/"
-         target="_blank" class="project-link">
-         View on LinkedIn →
-      </a>
-    </div>
-
-    <div class="card">
-      <h3>AI & Data Science Certifications</h3>
-      <p>
-        Completed industry-recognized certifications focused on AI, analytics,
-        and applied machine learning.
-      </p>
-      <p><b>Organizations:</b> IBM, Value Laden</p>
-      <a href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_certificationachievement-thankyou-activity-7102579900724781057-YFUG/"
-         target="_blank" class="project-link">
-         View on LinkedIn →
+      <h3>Loan Approval Prediction</h3>
+      <p>ML model predicting loan approvals.</p>
+      <a class="project-link" target="_blank"
+         href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/">
+        View on LinkedIn →
       </a>
     </div>
 
   </div>
 </section>
 
-
-
-<footer>
-  © 2026 Joshua Rufus Mukku
-</footer>
-
-<script>
-const reveals=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top<window.innerHeight-100){
-      r.classList.add('active');
-    }
-  });
-});
-</script>
+<footer>© 2026 Joshua Rufus Mukku</footer>
 
 </body>
 </html>
