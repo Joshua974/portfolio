@@ -204,6 +204,50 @@ h2{font-size:3rem;margin-bottom:40px}
   text-decoration:none;
 }
 .contact-card a:hover{text-decoration:underline}
+  /* ---------- LINKEDIN BUTTON CARD ---------- */
+.linkedin-card{
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid rgba(0,245,255,0.35);
+  background:linear-gradient(
+    135deg,
+    rgba(0,245,255,0.15),
+    rgba(127,0,255,0.12)
+  );
+  transition:0.35s;
+}
+
+.linkedin-card h3{
+  margin:10px 0 6px;
+  color:#00f5ff;
+}
+
+.linkedin-card p{
+  opacity:.85;
+  font-size:0.95rem;
+}
+
+.linkedin-btn{
+  display:inline-block;
+  margin-top:18px;
+  padding:10px 22px;
+  border-radius:20px;
+  background:#00f5ff;
+  color:#000;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.linkedin-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 30px 60px rgba(0,245,255,0.25);
+}
+
+.linkedin-card:hover .linkedin-btn{
+  background:#7f00ff;
+  color:#fff;
+}
+
 
 /* ---------- RESUME ---------- */
 .resume-btn{
@@ -346,11 +390,17 @@ footer{text-align:center;padding:40px;opacity:.6}
       <p><a href="mailto:joshua.mukku@ue-germany.de">joshua.mukku@ue-germany.de</a></p>
     </div>
 
-    <div class="contact-card">
-      <i class="fab fa-linkedin"></i>
-      <p><a target="_blank"
-         href="https://www.linkedin.com/in/joshua-rufus-037ba428a/">LinkedIn Profile</a></p>
-    </div>
+    <a href="https://www.linkedin.com/in/joshua-rufus-037ba428a/"
+   target="_blank"
+   class="contact-card linkedin-card">
+
+  <i class="fab fa-linkedin"></i>
+  <h3>LinkedIn</h3>
+  <p>View my professional profile</p>
+  <span class="linkedin-btn">Visit Profile →</span>
+
+</a>
+
 
   </div>
 </section>
