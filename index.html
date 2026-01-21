@@ -94,6 +94,23 @@ nav a:hover{opacity:1}
 }
 .cta button:hover{transform:scale(1.05)}
 
+  .hero-text{
+  max-width:520px;
+}
+
+.hero-lottie{
+  width:380px;
+  height:380px;
+}
+
+@media(max-width:900px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+
 /* ---------- SECTION ---------- */
 section{
   padding:120px 10%;
@@ -165,14 +182,28 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <div>
+  
+  <!-- LEFT: TEXT -->
+  <div class="hero-text">
     <h1>Joshua Rufus <span>Mukku</span></h1>
-    <p>M.Sc Data Science | AI Engineer | Web Architect</p>
+    <p>Data Scientist specializing in Machine Learning and AI systems</p>
     <div class="cta">
       <button>View My Work</button>
     </div>
   </div>
+
+  <!-- RIGHT: LOTTIE ANIMATION -->
+  <lottie-player
+    src="ai-animation.json"
+    background="transparent"
+    speed="1"
+    loop
+    autoplay
+    class="hero-lottie">
+  </lottie-player>
+
 </div>
+
 
 <!-- ABOUT -->
 <section id="about" class="reveal">
