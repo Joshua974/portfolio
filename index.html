@@ -109,6 +109,81 @@ h2{font-size:3rem;margin-bottom:40px}
 .project-link:hover{text-decoration:underline}
 
 footer{text-align:center;padding:40px;opacity:.6}
+  /* ---------- ABOUT SECTION (CREATIVE) ---------- */
+.about-section{
+  padding:120px 10%;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:flex-start;
+}
+
+.about-content h2{
+  font-size:3rem;
+  margin-bottom:30px;
+}
+
+.about-intro{
+  font-size:1.15rem;
+  line-height:1.7;
+  opacity:.9;
+}
+
+.about-intro span{
+  color:#00f5ff;
+  font-weight:600;
+}
+
+.about-block{
+  margin-top:30px;
+}
+
+.about-block h4{
+  margin-bottom:10px;
+  font-size:1.1rem;
+  color:#7f00ff;
+}
+
+.about-block.highlight{
+  padding:20px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.about-cards{
+  display:grid;
+  gap:25px;
+}
+
+.about-card{
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(20px);
+  transition:0.4s;
+}
+
+.about-card:hover{
+  transform:translateY(-10px);
+}
+
+.about-card h3{
+  margin-bottom:10px;
+  color:#00f5ff;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -149,6 +224,9 @@ footer{text-align:center;padding:40px;opacity:.6}
 <section id="about" class="about-section reveal">
   <div class="about-grid">
 
+    <section id="about" class="about-section reveal">
+  <div class="about-grid">
+
     <!-- LEFT: TEXT STORY -->
     <div class="about-content">
       <h2>About Me</h2>
@@ -174,7 +252,42 @@ footer{text-align:center;padding:40px;opacity:.6}
         <h4>🧠 Interests</h4>
         <p>
           Building intelligent systems that solve real-world problems —
-          from <b>predictive ana
+          from <b>predictive analytics</b> and <b>financial ML models</b>
+          to <b>AI-powered automation</b> and <b>agent-based workflows</b>.
+        </p>
+      </div>
+
+      <div class="about-block highlight">
+        <h4>🚀 Currently Seeking</h4>
+        <p>
+          Internships and working student roles in
+          <b>Data Science</b>, <b>Machine Learning</b>, or <b>AI</b>
+          within Germany and the EU.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: CREATIVE STATS / CARDS -->
+    <div class="about-cards">
+      <div class="about-card">
+        <h3>🎯 Focus</h3>
+        <p>Applied Machine Learning & AI Systems</p>
+      </div>
+
+      <div class="about-card">
+        <h3>🌍 Location</h3>
+        <p>Potsdam, Germany (EU)</p>
+      </div>
+
+      <div class="about-card">
+        <h3>🛠 Strengths</h3>
+        <p>Python, ML Models, AI Agents, Data Analysis</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 
 <!-- SKILLS -->
