@@ -5,83 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joshua Rufus Mukku | Data Scientist</title>
 
-<!-- Google Fonts -->
+<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Lottie -->
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <style>
-html{scroll-behavior:smooth}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{
-  background:#050505;
-  color:#fff;
-  overflow-x:hidden;
-  padding-top:100px;
+:root{
+  --bg:#050505;
+  --text:#ffffff;
+  --card:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.1);
+}
+body.light{
+  --bg:#f6f7fb;
+  --text:#111;
+  --card:#ffffff;
+  --border:#ddd;
 }
 
-/* ---------- BACKGROUND ---------- */
-.bg-blur{
-  position:fixed;
-  width:400px;height:400px;
-  filter:blur(140px);
-  opacity:.35;
-  z-index:-1;
+html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  padding-top:110px;
+  overflow-x:hidden;
 }
-.bg1{top:-100px;left:-100px;background:linear-gradient(45deg,#00f5ff,#7f00ff)}
-.bg2{bottom:-150px;right:-150px;background:linear-gradient(45deg,#ff0080,#ff8c00)}
+
+/* ---------- PROGRESS BAR ---------- */
+#progress{
+  position:fixed;
+  top:0;left:0;
+  height:4px;
+  background:linear-gradient(90deg,#00f5ff,#7f00ff);
+  width:0%;
+  z-index:999;
+}
 
 /* ---------- NAV ---------- */
 nav{
-  position:fixed;top:0;width:100%;
+  position:fixed;
+  top:0;width:100%;
   padding:20px 8%;
-  display:flex;justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   backdrop-filter:blur(20px);
   z-index:100;
 }
-nav a{color:#fff;text-decoration:none;margin-left:30px;opacity:.8}
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:30px;
+  opacity:.6;
+}
+nav a.active{opacity:1;border-bottom:2px solid #00f5ff}
 nav a:hover{opacity:1}
+
+.toggle{
+  cursor:pointer;
+  margin-left:30px;
+}
 
 /* ---------- SECTIONS ---------- */
 section{
-  scroll-margin-top:100px;
   padding:120px 10%;
+  scroll-margin-top:120px;
 }
 h2{font-size:3rem;margin-bottom:40px}
-  .hero{
-  height:calc(100vh - 100px);
-  display:flex;
-  align-items:center;
-}
-
-.hero-inner{
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:80px;
-}
-
-.hero-text{
-  max-width:540px;
-}
-
 
 /* ---------- HERO ---------- */
-.hero{
-  height:calc(100vh - 100px);
+.hero{height:calc(100vh - 110px);display:flex;align-items:center}
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:80px;
 }
-.hero-text{max-width:540px}
+.hero-text{max-width:520px}
 .hero h1{font-size:4rem;font-weight:800}
 .hero span{
   background:linear-gradient(90deg,#00f5ff,#7f00ff);
@@ -89,37 +94,24 @@ h2{font-size:3rem;margin-bottom:40px}
   -webkit-text-fill-color:transparent;
 }
 .hero p{margin-top:20px;font-size:1.2rem;opacity:.85}
-
-.cta{margin-top:40px}
 .cta-btn{
   display:inline-block;
+  margin-top:40px;
   padding:14px 30px;
   border-radius:30px;
   background:linear-gradient(90deg,#00f5ff,#7f00ff);
   color:#000;
   font-weight:600;
   text-decoration:none;
-  transition:.3s;
 }
-.cta-btn:hover{transform:scale(1.05)}
-
 .hero-lottie{
-  width:520px;height:520px;
-  animation:float 2s ease-in-out infinite;
+  width:500px;
+  animation:float 6s ease-in-out infinite;
 }
 @keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-18px)}
   100%{transform:translateY(0)}
-}
-@media(max-width:900px){
-  .hero{flex-direction:column;text-align:center}
-  .hero-lottie{width:340px;height:340px;margin-top:40px}
-}
-.hero{
-  height:calc(100vh - 100px);
-  display:flex;
-  align-items:center;
 }
 
 /* ---------- GRID / CARDS ---------- */
@@ -128,58 +120,18 @@ h2{font-size:3rem;margin-bottom:40px}
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
-
 .card{
-  position:relative;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:20px;
   padding:30px;
-  backdrop-filter:blur(20px);
-  overflow:hidden;
   transition:.3s;
+  cursor:pointer;
 }
 .card:hover{transform:translateY(-10px)}
 
-/* Hover overlay */
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(127,0,255,.2));
-  opacity:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.3s;
-}
-.card:hover .card-overlay{opacity:1}
-.card-overlay span{font-weight:600}
-
 /* ---------- ABOUT ---------- */
-.about-section{max-width:1200px;margin:auto}
-.about-intro{
-  font-size:1.15rem;
-  line-height:1.7;
-  max-width:800px;
-  margin-bottom:50px;
-  opacity:.9;
-}
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.about-card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:20px;
-  padding:30px;
-}
-.about-card h3{margin-bottom:12px;color:#00f5ff}
-.about-card.highlight{
-  border-color:#7f00ff;
-  background:linear-gradient(135deg,rgba(127,0,255,.15),rgba(0,245,255,.08));
-}
+.about-intro{max-width:800px;font-size:1.15rem;line-height:1.7;margin-bottom:50px}
 
 /* ---------- CONTACT ---------- */
 .contact-grid{
@@ -191,86 +143,40 @@ h2{font-size:3rem;margin-bottom:40px}
   text-align:center;
   padding:40px;
   border-radius:20px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
+  background:var(--card);
+  border:1px solid var(--border);
 }
-.contact-card i{
-  font-size:2rem;
-  margin-bottom:15px;
-  color:#00f5ff;
-}
-.contact-card a{
-  color:#fff;
-  text-decoration:none;
-}
-.contact-card a:hover{text-decoration:underline}
-  /* ---------- LINKEDIN BUTTON CARD ---------- */
 .linkedin-card{
+  background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(127,0,255,.15));
   text-decoration:none;
-  cursor:pointer;
-  border:1px solid rgba(0,245,255,0.35);
-  background:linear-gradient(
-    135deg,
-    rgba(0,245,255,0.15),
-    rgba(127,0,255,0.12)
-  );
-  transition:0.35s;
 }
-
-.linkedin-card h3{
-  margin:10px 0 6px;
-  color:#00f5ff;
-}
-
-.linkedin-card p{
-  opacity:.85;
-  font-size:0.95rem;
-}
-
 .linkedin-btn{
+  margin-top:15px;
   display:inline-block;
-  margin-top:18px;
-  padding:10px 22px;
+  padding:10px 20px;
   border-radius:20px;
   background:#00f5ff;
   color:#000;
   font-weight:600;
-  transition:0.3s;
 }
 
-.linkedin-card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 30px 60px rgba(0,245,255,0.25);
+/* ---------- MODAL ---------- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
 }
-
-.linkedin-card:hover .linkedin-btn{
-  background:#7f00ff;
-  color:#fff;
+.modal-content{
+  background:var(--bg);
+  border-radius:20px;
+  padding:40px;
+  max-width:500px;
 }
-
-
-/* ---------- RESUME ---------- */
-.resume-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 28px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00f5ff,#7f00ff);
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* ---------- REVEAL ANIMATION ---------- */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
+.modal.show{display:flex}
 
 /* ---------- FOOTER ---------- */
 footer{text-align:center;padding:40px;opacity:.6}
@@ -279,8 +185,7 @@ footer{text-align:center;padding:40px;opacity:.6}
 
 <body>
 
-<div class="bg-blur bg1"></div>
-<div class="bg-blur bg2"></div>
+<div id="progress"></div>
 
 <nav>
   <strong>JRM</strong>
@@ -289,135 +194,114 @@ footer{text-align:center;padding:40px;opacity:.6}
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <span class="toggle" onclick="toggleTheme()">🌓</span>
   </div>
 </nav>
 
 <!-- HERO -->
-<!-- HERO -->
-<div class="hero reveal">
+<div class="hero">
   <div class="hero-inner">
-
-    <!-- LEFT: TEXT -->
     <div class="hero-text">
       <h1>Joshua Rufus <span>Mukku</span></h1>
       <p>Data Scientist specializing in Machine Learning and AI systems</p>
-
-      <div class="cta">
-        <a href="#projects" class="cta-btn">View My Work</a>
-      </div>
+      <a href="#projects" class="cta-btn">View My Work</a>
     </div>
-
-    <!-- RIGHT: LOTTIE -->
-    <lottie-player
-      src="ai-animation.json"
-      background="transparent"
-      speed="1"
-      loop
-      autoplay
-      class="hero-lottie">
-    </lottie-player>
-
+    <lottie-player src="ai-animation.json" background="transparent" speed="1" loop autoplay class="hero-lottie"></lottie-player>
   </div>
 </div>
 
-
 <!-- ABOUT -->
-<section id="about" class="about-section reveal">
+<section id="about">
   <h2>About Me</h2>
   <p class="about-intro">
-    M.Sc. Data Science student at the University of Europe, Potsdam (Germany),
-    with strong experience in Machine Learning, AI systems, and data-driven development.
+    M.Sc. Data Science student at University of Europe, Potsdam (Germany),
+    focused on Machine Learning, AI systems, and intelligent automation.
   </p>
-
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>🎓 Education</h3>
-      <p>B.Tech in Computer Science (AI & ML)<br>Narasimha Reddy Engineering College</p>
-    </div>
-    <div class="about-card">
-      <h3>🧠 Interests</h3>
-      <p>Predictive analytics, financial ML, AI automation, agent-based workflows</p>
-    </div>
-    <div class="about-card highlight">
-      <h3>🚀 Seeking</h3>
-      <p>Internships & Working Student roles in Germany / EU</p>
-    </div>
-  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="reveal">
+<section id="skills">
   <h2>Skills</h2>
   <div class="grid">
     <div class="card">Python, SQL, JavaScript</div>
     <div class="card">Machine Learning & AI</div>
-    <div class="card">Data Analysis & Visualization</div>
+    <div class="card">Data Analysis</div>
     <div class="card">Web Development</div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="reveal">
+<section id="projects">
   <h2>Projects</h2>
   <div class="grid">
-
-    <div class="card">
-      <h3>AI Stock Trading Analyst</h3>
-      <p>Automated market analysis using AI agents.</p>
-      <div class="card-overlay"><span>Python • AI Agents • LLMs</span></div>
-      <a class="project-link" target="_blank"
-         href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_carousel-activity-7417118448561864704-a-dc/">LinkedIn →</a>
+    <div class="card" onclick="openModal('AI Stock Trading Analyst','AI agent based system for market analysis.')">
+      AI Stock Trading Analyst
     </div>
-
-    <div class="card">
-      <h3>Loan Approval Prediction</h3>
-      <p>ML model predicting loan approvals.</p>
-      <div class="card-overlay"><span>ML • Finance • Data Science</span></div>
-      <a class="project-link" target="_blank"
-         href="https://www.linkedin.com/posts/joshua-rufus-037ba428a_machinelearning-finance-datascience-activity-7409174032522260480-OH_b/">LinkedIn →</a>
+    <div class="card" onclick="openModal('Loan Approval Prediction','ML model predicting loan approvals.')">
+      Loan Approval Prediction
     </div>
-
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="reveal">
+<section id="contact">
   <h2>Contact</h2>
   <div class="contact-grid">
-
     <div class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <p><a href="mailto:joshua.mukku@ue-germany.de">joshua.mukku@ue-germany.de</a></p>
+      <i class="fas fa-envelope"></i><br>
+      <a href="mailto:joshua.mukku@ue-germany.de">joshua.mukku@ue-germany.de</a>
     </div>
 
-    <a href="https://www.linkedin.com/in/joshua-rufus-037ba428a/"
-   target="_blank"
-   class="contact-card linkedin-card">
-
-  <i class="fab fa-linkedin"></i>
-  <h3>LinkedIn</h3>
-  <p>View my professional profile</p>
-  <span class="linkedin-btn">Visit Profile →</span>
-
-</a>
-
-
+    <a class="contact-card linkedin-card" target="_blank"
+       href="https://www.linkedin.com/in/joshua-rufus-037ba428a/">
+      <i class="fab fa-linkedin"></i><br>
+      LinkedIn<br>
+      <span class="linkedin-btn">Visit Profile →</span>
+    </a>
   </div>
 </section>
 
 <footer>© 2026 Joshua Rufus Mukku</footer>
 
-<!-- SCROLL REVEAL -->
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p><br>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
 <script>
-const reveals=document.querySelectorAll(".reveal");
+// Progress bar
 window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add("active");
+  const h=document.documentElement;
+  document.getElementById("progress").style.width=
+    (h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
+
+  document.querySelectorAll("section").forEach(sec=>{
+    if(sec.getBoundingClientRect().top<150){
+      document.querySelectorAll("nav a").forEach(a=>a.classList.remove("active"));
+      const link=document.querySelector(`nav a[href="#${sec.id}"]`);
+      if(link) link.classList.add("active");
     }
   });
 });
-window.dispatchEvent(new Event("scroll"));
+
+// Theme toggle
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+// Modal
+function openModal(title,text){
+  document.getElementById("modalTitle").innerText=title;
+  document.getElementById("modalText").innerText=text;
+  document.getElementById("modal").classList.add("show");
+}
+function closeModal(){
+  document.getElementById("modal").classList.remove("show");
+}
 </script>
 
 </body>
